@@ -34,6 +34,7 @@ impl RtspServer {
         factory.set_launch(concat!("( ",
                 "appsrc name=writesrc is-live=true block=true emit-signals=false max-bytes=0",
                 " ! h265parse",
+                " ! queue ",
                 " ! rtph265pay name=pay0",
         " )"));
         factory.set_shared(true);
